@@ -7,7 +7,11 @@ import "./PriceOracle.sol";
 import "./ComptrollerInterface.sol";
 import "./ComptrollerStorage.sol";
 import "./Unitroller.sol";
-import "./Governance/Comp.sol";
+
+interface Comp {
+    function balanceOf(address account) external view returns (uint);
+    function transfer(address to, uint amount) external returns (bool);
+}
 
 /**
  * @title Compound's Comptroller Contract
@@ -1466,6 +1470,6 @@ contract Comptroller is ComptrollerV7Storage, ComptrollerInterface, ComptrollerE
      * @return The address of COMP
      */
     function getCompAddress() virtual public view returns (address) {
-        return 0xc00e94Cb662C3520282E6f5717214004A7f26888;
+        return address(0);
     }
 }
